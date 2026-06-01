@@ -1,5 +1,10 @@
 # Changelog
 
+## 1.0.3
+
+- Make app icon and logo backgrounds transparent.
+- Add unofficial project disclaimer.
+
 ## 1.0.2
 
 - Add Home Assistant app icon and logo assets.

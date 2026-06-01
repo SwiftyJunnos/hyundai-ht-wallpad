@@ -1,8 +1,10 @@
-# Hyundai HT Wallpad — Home Assistant app repository
+# Hyundai HT Wallpad — Unofficial Home Assistant app repository
 
-A custom Home Assistant app repository that bridges Korean (Hyundai HT)
+An unofficial Home Assistant app repository that bridges Korean (Hyundai HT)
 wallpad lights to MQTT over an EW11 RS485-to-WiFi gateway, with automatic
 Home Assistant MQTT discovery.
+
+This project is not affiliated with, endorsed by, or sponsored by Hyundai HT.
 
 ## Install
 

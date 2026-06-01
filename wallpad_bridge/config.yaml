@@ -1,7 +1,7 @@
 name: Wallpad RS485 Bridge
-version: "1.0.2"
+version: "1.0.3"
 slug: wallpad_bridge
-description: Bridge EW11 RS485 wallpad lights to MQTT with Home Assistant auto-discovery
+description: Unofficial bridge for EW11 RS485 wallpad lights to MQTT with Home Assistant auto-discovery
 url: "https://github.com/SwiftyJunnos/hyundai-ht-wallpad"
 arch:
   - aarch64

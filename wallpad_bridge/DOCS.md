@@ -1,7 +1,9 @@
 # Wallpad RS485 Bridge
 
-Bridges Korean wallpad lights (over an EW11 RS485-to-WiFi gateway) to MQTT and
-auto-registers them in Home Assistant via MQTT discovery.
+Unofficial bridge for Korean wallpad lights (over an EW11 RS485-to-WiFi
+gateway) to MQTT, with automatic Home Assistant MQTT discovery.
+
+This project is not affiliated with, endorsed by, or sponsored by Hyundai HT.
 
 ## Install
 
