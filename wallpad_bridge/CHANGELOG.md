@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.2
+
+- Add Home Assistant app icon and logo assets.
+
 ## 1.0.1
 
 - Apply formatter cleanup.
