@@ -1,7 +1,6 @@
 from enum import IntEnum
 from typing import NamedTuple
 
-
 FRAME_START = 0xF7
 FRAME_END = 0xEE
 STATUS_PREFIX = bytes.fromhex("f710011904401000")

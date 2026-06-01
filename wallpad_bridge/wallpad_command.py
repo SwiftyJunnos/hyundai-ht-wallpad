@@ -3,7 +3,6 @@ from threading import Lock
 
 from wallpad_protocol import LightCommandAck, LightState, build_light_command
 
-
 LightStates = tuple[LightState | None, ...]
 
 
