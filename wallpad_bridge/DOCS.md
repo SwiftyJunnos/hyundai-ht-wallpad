@@ -6,14 +6,8 @@ auto-registers them in Home Assistant via MQTT discovery.
 ## Install (add-on repository)
 
 1. Go to **Settings → Add-ons → Add-on Store**, open the **⋮** menu →
-   **Repositories**, and add this repository URL.
-   - Public repo: `https://github.com/SwiftyJunnos/hyundai-ht-wallpad`
-   - **Private repo**: Home Assistant cannot clone a private repo without
-     credentials, so use a token-embedded URL:
-     `https://<GITHUB_TOKEN>@github.com/SwiftyJunnos/hyundai-ht-wallpad`
-     (a fine-grained PAT with read access to this repo), **or** make the repo
-     public, **or** copy the `wallpad_bridge/` folder into `/addons/` as a local
-     add-on.
+   **Repositories**, and add this repository URL:
+   `https://github.com/SwiftyJunnos/hyundai-ht-wallpad`
 2. Find **Wallpad RS485 Bridge** in the store, click **Install**, then **Start**.
 
 The **MQTT integration** must be set up in Home Assistant (the official Mosquitto
