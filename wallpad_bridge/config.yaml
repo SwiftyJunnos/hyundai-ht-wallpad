@@ -1,0 +1,43 @@
+name: Wallpad RS485 Bridge
+version: "1.0.0"
+slug: wallpad_bridge
+description: Bridge EW11 RS485 wallpad lights to MQTT with Home Assistant auto-discovery
+url: ""
+arch:
+  - aarch64
+  - amd64
+  - armv7
+  - armhf
+  - i386
+init: false
+startup: services
+boot: auto
+hassio_api: true
+services:
+  - mqtt:need
+options:
+  ew11_host: "172.30.1.48"
+  ew11_port: 8899
+  topic_prefix: "home/wallpad/light"
+  light_count: 6
+  device_name: "Wallpad"
+  command_max_attempts: 10
+  command_retry_status_frames: 1
+  command_confirm_timeout_frames: 6
+  mqtt_host: ""
+  mqtt_port: 0
+  mqtt_user: ""
+  mqtt_pass: ""
+schema:
+  ew11_host: str
+  ew11_port: port
+  topic_prefix: str
+  light_count: int(1,8)
+  device_name: str
+  command_max_attempts: int(1,50)
+  command_retry_status_frames: int(1,30)
+  command_confirm_timeout_frames: int(1,60)
+  mqtt_host: str?
+  mqtt_port: int?
+  mqtt_user: str?
+  mqtt_pass: password?
