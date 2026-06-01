@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.4
+
+- Rename the MQTT password option to `mqtt_password`.
+- Use `1883` as the MQTT port default.
+- Replace the EW11 host default with an example private IP.
+
 ## 1.0.3
 
 - Make app icon and logo backgrounds transparent.

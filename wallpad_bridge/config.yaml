@@ -1,5 +1,5 @@
 name: Wallpad RS485 Bridge
-version: "1.0.3"
+version: "1.0.4"
 slug: wallpad_bridge
 description: Unofficial bridge for EW11 RS485 wallpad lights to MQTT with Home Assistant auto-discovery
 url: "https://github.com/SwiftyJunnos/hyundai-ht-wallpad"
@@ -13,7 +13,7 @@ hassio_api: true
 services:
   - mqtt:need
 options:
-  ew11_host: "172.30.1.48"
+  ew11_host: "192.168.1.100"
   ew11_port: 8899
   topic_prefix: "home/wallpad/light"
   light_count: 6
@@ -22,9 +22,9 @@ options:
   command_retry_status_frames: 1
   command_confirm_timeout_frames: 6
   mqtt_host: ""
-  mqtt_port: 0
+  mqtt_port: 1883
   mqtt_user: ""
-  mqtt_pass: ""
+  mqtt_password: ""
 schema:
   ew11_host: str
   ew11_port: port
@@ -35,6 +35,6 @@ schema:
   command_retry_status_frames: int(1,30)
   command_confirm_timeout_frames: int(1,60)
   mqtt_host: str?
-  mqtt_port: int?
+  mqtt_port: port?
   mqtt_user: str?
-  mqtt_pass: password?
+  mqtt_password: password?

@@ -20,7 +20,7 @@ broker app works out of the box - this app uses it automatically).
 
 | Option | Default | Description |
 | --- | --- | --- |
-| `ew11_host` | `172.30.1.48` | IP of the EW11 gateway |
+| `ew11_host` | `192.168.1.100` | IP of the EW11 gateway |
 | `ew11_port` | `8899` | TCP port of the EW11 |
 | `topic_prefix` | `home/wallpad/light` | Base MQTT topic for lights |
 | `light_count` | `6` | Number of lights to expose |
@@ -29,12 +29,13 @@ broker app works out of the box - this app uses it automatically).
 | `command_retry_status_frames` | `1` | Status cycles to wait before retrying |
 | `command_confirm_timeout_frames` | `6` | Cycles to wait after an ack for the state to reflect |
 | `mqtt_host` | _(empty)_ | Override broker host (leave empty to use the built-in broker) |
-| `mqtt_port` | `0` | Override broker port |
+| `mqtt_port` | `1883` | Override broker port |
 | `mqtt_user` | _(empty)_ | Override broker username |
-| `mqtt_pass` | _(empty)_ | Override broker password |
+| `mqtt_password` | _(empty)_ | Override broker password |
 
-Leave the `mqtt_*` options empty to auto-use the Home Assistant built-in MQTT
-broker (recommended). Set them only if you run a separate broker.
+Leave `mqtt_host`, `mqtt_user`, and `mqtt_password` empty to auto-use the Home
+Assistant built-in MQTT broker (recommended). Set them only if you run a
+separate broker.
 
 ## Entities
 

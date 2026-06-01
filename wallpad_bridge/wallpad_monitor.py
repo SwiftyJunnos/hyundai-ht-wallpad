@@ -74,7 +74,12 @@ def _resolve_mqtt() -> tuple[str, int, str, str]:
     if host:
         port = _OPTIONS.get("mqtt_port") or os.environ.get("MQTT_PORT") or 1883
         user = _OPTIONS.get("mqtt_user") or os.environ.get("MQTT_USER", "")
-        password = _OPTIONS.get("mqtt_pass") or os.environ.get("MQTT_PASS", "")
+        password = (
+            _OPTIONS.get("mqtt_password")
+            or _OPTIONS.get("mqtt_pass")
+            or os.environ.get("MQTT_PASSWORD")
+            or os.environ.get("MQTT_PASS", "")
+        )
         return (str(host), int(port), str(user), str(password))
 
     service = _discover_supervisor_mqtt()
@@ -86,11 +91,11 @@ def _resolve_mqtt() -> tuple[str, int, str, str]:
         os.environ.get("MQTT_HOST", "127.0.0.1"),
         int(os.environ.get("MQTT_PORT", 1883)),
         os.environ.get("MQTT_USER", ""),
-        os.environ.get("MQTT_PASS", ""),
+        os.environ.get("MQTT_PASSWORD") or os.environ.get("MQTT_PASS", ""),
     )
 
 
-EW11_HOST = str(_opt("ew11_host", "EW11_HOST", "172.30.1.48"))
+EW11_HOST = str(_opt("ew11_host", "EW11_HOST", "192.168.1.100"))
 EW11_PORT = int(_opt("ew11_port", "EW11_PORT", 8899))
 
 MQTT_HOST, MQTT_PORT, MQTT_USER, MQTT_PASS = _resolve_mqtt()

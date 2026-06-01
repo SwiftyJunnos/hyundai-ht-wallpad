@@ -39,7 +39,7 @@ uv run wallpad_bridge/wallpad_monitor.py
 
 Configuration comes from app options (`/data/options.json`) when run as a
 Home Assistant app, otherwise from environment variables (`EW11_HOST`, `MQTT_HOST`,
-`MQTT_USER`, `MQTT_PASS`, `TOPIC_PREFIX`, `LIGHT_COUNT`, `COMMAND_MAX_ATTEMPTS`,
+`MQTT_USER`, `MQTT_PASSWORD`, `TOPIC_PREFIX`, `LIGHT_COUNT`, `COMMAND_MAX_ATTEMPTS`,
 ...). No secrets are baked into the source.
 
 ## Tests
