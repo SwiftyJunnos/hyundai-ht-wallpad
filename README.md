@@ -1,12 +1,12 @@
-# Hyundai HT Wallpad — Home Assistant add-on repository
+# Hyundai HT Wallpad — Home Assistant app repository
 
-A custom Home Assistant add-on repository that bridges Korean (Hyundai HT)
+A custom Home Assistant app repository that bridges Korean (Hyundai HT)
 wallpad lights to MQTT over an EW11 RS485-to-WiFi gateway, with automatic
 Home Assistant MQTT discovery.
 
 ## Install
 
-In Home Assistant: **Settings → Add-ons → Add-on Store → ⋮ → Repositories**, add:
+In Home Assistant: **Settings → Apps → Install app → ⋮ → Repositories**, add:
 
 ```
 https://github.com/SwiftyJunnos/hyundai-ht-wallpad
@@ -14,15 +14,15 @@ https://github.com/SwiftyJunnos/hyundai-ht-wallpad
 
 Then install **Wallpad RS485 Bridge**. See
 [`wallpad_bridge/DOCS.md`](wallpad_bridge/DOCS.md) for configuration and the
-private-repo install note.
+install notes.
 
 ## Repository layout
 
 ```
 .
-├── repository.yaml          # add-on repository metadata
-└── wallpad_bridge/          # the add-on
-    ├── config.yaml / build.yaml / Dockerfile
+├── repository.yaml          # app repository metadata
+└── wallpad_bridge/          # the app
+    ├── config.yaml / Dockerfile
     ├── wallpad_protocol.py   # frame build/parse (length-aware, checksum-validated)
     ├── wallpad_command.py    # ack-aware retry scheduler
     ├── wallpad_monitor.py    # EW11 ↔ MQTT bridge, discovery, entrypoint
@@ -35,8 +35,8 @@ private-repo install note.
 uv run wallpad_bridge/wallpad_monitor.py
 ```
 
-Configuration comes from add-on options (`/data/options.json`) when run as an
-add-on, otherwise from environment variables (`EW11_HOST`, `MQTT_HOST`,
+Configuration comes from app options (`/data/options.json`) when run as a
+Home Assistant app, otherwise from environment variables (`EW11_HOST`, `MQTT_HOST`,
 `MQTT_USER`, `MQTT_PASS`, `TOPIC_PREFIX`, `LIGHT_COUNT`, `COMMAND_MAX_ATTEMPTS`,
 ...). No secrets are baked into the source.
 

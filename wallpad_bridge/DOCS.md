@@ -3,15 +3,16 @@
 Bridges Korean wallpad lights (over an EW11 RS485-to-WiFi gateway) to MQTT and
 auto-registers them in Home Assistant via MQTT discovery.
 
-## Install (add-on repository)
+## Install
 
-1. Go to **Settings → Add-ons → Add-on Store**, open the **⋮** menu →
+1. Go to **Settings → Apps → Install app**, open the **⋮** menu →
    **Repositories**, and add this repository URL:
    `https://github.com/SwiftyJunnos/hyundai-ht-wallpad`
-2. Find **Wallpad RS485 Bridge** in the store, click **Install**, then **Start**.
+2. Refresh the app store page if needed.
+3. Find **Wallpad RS485 Bridge** in the store, click **Install**, then **Start**.
 
 The **MQTT integration** must be set up in Home Assistant (the official Mosquitto
-broker add-on works out of the box — this add-on uses it automatically).
+broker app works out of the box - this app uses it automatically).
 
 ## Configuration
 
@@ -35,7 +36,7 @@ broker (recommended). Set them only if you run a separate broker.
 
 ## Entities
 
-On start, the add-on publishes discovery configs to
+On start, the app publishes discovery configs to
 `homeassistant/light/wallpad_light_<n>/config`, so each light appears as a
 **light** entity automatically. State and commands use:
 
@@ -45,7 +46,7 @@ On start, the add-on publishes discovery configs to
 
 ## Logs
 
-The add-on log shows each command, its attempts, confirmations, and any
+The app log shows each command, its attempts, confirmations, and any
 failures. If you see `command FAILED ... after N attempts`, the command was
 sent repeatedly but the wallpad never acknowledged it — that points to a
 bus/hardware-level issue rather than a configuration problem.
