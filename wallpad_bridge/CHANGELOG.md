@@ -1,5 +1,9 @@
 # Changelog
 
+## 1.0.5
+
+- Fix Python 3.12 compatibility for the Home Assistant container runtime.
+
 ## 1.0.4
 
 - Rename the MQTT password option to `mqtt_password`.

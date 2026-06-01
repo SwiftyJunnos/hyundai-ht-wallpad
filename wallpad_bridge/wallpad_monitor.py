@@ -29,7 +29,7 @@ def _load_addon_options() -> dict:
     try:
         with open("/data/options.json", encoding="utf-8") as f:
             return json.load(f)
-    except FileNotFoundError, json.JSONDecodeError:
+    except (FileNotFoundError, json.JSONDecodeError):
         return {}
 
 
