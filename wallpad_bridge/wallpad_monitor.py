@@ -103,7 +103,7 @@ MQTT_HOST, MQTT_PORT, MQTT_USER, MQTT_PASS = _resolve_mqtt()
 TOPIC_PREFIX = str(_opt("topic_prefix", "TOPIC_PREFIX", "home/wallpad/light"))
 AVAILABILITY_TOPIC = f"{TOPIC_PREFIX}/availability"
 DISCOVERY_PREFIX = str(_opt("discovery_prefix", "DISCOVERY_PREFIX", "homeassistant"))
-DEVICE_NAME = str(_opt("device_name", "DEVICE_NAME", "Wallpad"))
+DEVICE_NAME = str(_opt("device_name", "DEVICE_NAME", "Hyundai HT Wallpad"))
 LIGHT_COUNT = int(_opt("light_count", "LIGHT_COUNT", 6))
 
 COMMAND_MAX_ATTEMPTS = int(_opt("command_max_attempts", "COMMAND_MAX_ATTEMPTS", 10))
@@ -150,22 +150,23 @@ def republish_state(index: int) -> None:
 
 
 def publish_discovery() -> None:
-    """Announce the lights via MQTT discovery so HA creates them automatically."""
+    """Announce wallpad switches via MQTT discovery so HA creates them automatically."""
     if mqtt_client is None:
         raise RuntimeError("MQTT client is not initialized")
 
     device = {
         "identifiers": ["wallpad_bridge"],
         "name": DEVICE_NAME,
-        "manufacturer": "Wallpad",
+        "manufacturer": "Hyundai HT",
         "model": "EW11 RS485 Bridge",
     }
 
     for light_no in range(1, LIGHT_COUNT + 1):
-        unique_id = f"wallpad_light_{light_no}"
-        config_topic = f"{DISCOVERY_PREFIX}/light/{unique_id}/config"
+        unique_id = f"wallpad_switch_{light_no}"
+        config_topic = f"{DISCOVERY_PREFIX}/switch/{unique_id}/config"
+        legacy_config_topic = f"{DISCOVERY_PREFIX}/light/wallpad_light_{light_no}/config"
         payload = {
-            "name": f"Light {light_no}",
+            "name": f"Switch {light_no}",
             "unique_id": unique_id,
             "command_topic": f"{TOPIC_PREFIX}/{light_no}/set",
             "state_topic": f"{TOPIC_PREFIX}/{light_no}/state",
@@ -176,9 +177,10 @@ def publish_discovery() -> None:
             "payload_not_available": "offline",
             "device": device,
         }
+        mqtt_client.publish(legacy_config_topic, "", retain=True)
         mqtt_client.publish(config_topic, json.dumps(payload), retain=True)
 
-    print(f"published discovery for {LIGHT_COUNT} lights")
+    print(f"published discovery for {LIGHT_COUNT} switches")
 
 
 def handle_frame(frame: bytes) -> tuple[LightState | None, ...] | None:

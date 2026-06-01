@@ -1,5 +1,12 @@
 # Changelog
 
+## 1.0.6
+
+- Set the default Home Assistant device name to `Hyundai HT Wallpad`.
+- Set the MQTT discovery manufacturer to `Hyundai HT`.
+- Publish wallpad channels as Home Assistant switch entities.
+- Clear legacy retained light discovery configs.
+
 ## 1.0.5
 
 - Fix Python 3.12 compatibility for the Home Assistant container runtime.

@@ -1,6 +1,6 @@
 # Wallpad RS485 Bridge
 
-Unofficial bridge for Korean wallpad lights (over an EW11 RS485-to-WiFi
+Unofficial bridge for Korean wallpad switches (over an EW11 RS485-to-WiFi
 gateway) to MQTT, with automatic Home Assistant MQTT discovery.
 
 This project is not affiliated with, endorsed by, or sponsored by Hyundai HT.
@@ -22,9 +22,9 @@ broker app works out of the box - this app uses it automatically).
 | --- | --- | --- |
 | `ew11_host` | `192.168.1.100` | IP of the EW11 gateway |
 | `ew11_port` | `8899` | TCP port of the EW11 |
-| `topic_prefix` | `home/wallpad/light` | Base MQTT topic for lights |
-| `light_count` | `6` | Number of lights to expose |
-| `device_name` | `Wallpad` | Device name shown in Home Assistant |
+| `topic_prefix` | `home/wallpad/switch` | Base MQTT topic for switches |
+| `light_count` | `6` | Number of switches to expose |
+| `device_name` | `Hyundai HT Wallpad` | Device name shown in Home Assistant |
 | `command_max_attempts` | `10` | Max send attempts before giving up |
 | `command_retry_status_frames` | `1` | Status cycles to wait before retrying |
 | `command_confirm_timeout_frames` | `6` | Cycles to wait after an ack for the state to reflect |
@@ -40,12 +40,12 @@ separate broker.
 ## Entities
 
 On start, the app publishes discovery configs to
-`homeassistant/light/wallpad_light_<n>/config`, so each light appears as a
-**light** entity automatically. State and commands use:
+`homeassistant/switch/wallpad_switch_<n>/config`, so each wallpad channel appears
+as a **switch** entity automatically. State and commands use:
 
-- State:   `home/wallpad/light/<n>/state`  (`ON` / `OFF`, retained)
-- Command: `home/wallpad/light/<n>/set`    (`ON` / `OFF`)
-- Availability: `home/wallpad/light/availability` (`online` / `offline`)
+- State:   `home/wallpad/switch/<n>/state`  (`ON` / `OFF`, retained)
+- Command: `home/wallpad/switch/<n>/set`    (`ON` / `OFF`)
+- Availability: `home/wallpad/switch/availability` (`online` / `offline`)
 
 ## Logs
 
