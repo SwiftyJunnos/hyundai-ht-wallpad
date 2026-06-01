@@ -3,6 +3,7 @@ import os
 import socket
 import time
 import urllib.request
+from collections.abc import Sequence
 
 import paho.mqtt.client as mqtt
 from paho.mqtt.enums import CallbackAPIVersion
@@ -194,7 +195,9 @@ def enqueue_light_command(light_no: int, state: LightState) -> None:
     print(f"queued light {light_no} {state.name}")
 
 
-def handle_command_actions(sock: socket.socket, actions: list[CommandAction]) -> None:
+def handle_command_actions(
+    sock: socket.socket, actions: Sequence[CommandAction]
+) -> None:
     for action in actions:
         if isinstance(action, CommandSend):
             sock.sendall(action.packet)
